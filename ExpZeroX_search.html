@@ -31,30 +31,35 @@
             <!--简洁版本的Bing搜索似乎有未响应的bug，以后不响应可以补充&pc=nottellyou&adppc=nottellyou-->
             <!--<input type="submit" formmethod="GET" style="font-size:26px" formaction="https://cn.bing.com/search" value="Bing" />-->
             <input type="button" value="Bing" style="font-size:26px" onclick="handleBing()" />
-            <input type="button" value="Bilibili" style="font-size:26px"
-                onclick="window.open('https://search.bilibili.com/all?keyword='+document.getElementById('input_text').value, '_blank');" />
-            <input type="submit" value="GitHub" formmethod="GET" style="font-size:26px"
-                formaction="https://github.com/search" />
-            <input type="submit" value="Zhihu" formmethod="GET" style="font-size:26px"
-                formaction="https://www.zhihu.com/search?type=content" />
-            <input type="submit" value="Google" formmethod="GET" style="font-size:26px"
-                formaction="https://www.google.com/search" />
+            <input type="button" value="Bilibili" style="font-size:26px" onclick="handleBilibili()" />
+            <input type="submit" value="GitHub" style="font-size:26px" onclick="handleGitHub()" />
+            <input type="submit" value="Zhihu" style="font-size:26px" onclick="handleZhihu()" />
+            <input type="submit" value="Google" style="font-size:26px" onclick="handleGoogle()" />
 
             <script>
                 function submitForm(event) {
                     event.preventDefault(); // 阻止表单默认提交
                     handleBing();
-                    //window.open('https://cn.bing.com/search?q=' + encodeURIComponent(query), '_blank');
                 }
                 function handleBing() {
-                    // Bing 的具体处理逻辑
+                    //window.open('https://cn.bing.com/search?q=' + encodeURIComponent(query), '_blank');
                     window.open('https://cn.bing.com/search?q=' + document.getElementById('input_text').value + '&form=null&refig=null', '_blank');
                 }
-
+                function handleBilibili() {
+                    window.open('https://search.bilibili.com/all?keyword='+document.getElementById('input_text').value, '_blank');
+                }
+                function handleGitHub() {
+                    window.open('https://github.com/search?q=' + document.getElementById('input_text').value, '_blank');
+                }
+                function handleZhihu() {
+                    window.open('https://www.zhihu.com/search?type=content&q=' + document.getElementById('input_text').value, '_blank');
+                }
+                function handleGoogle() {
+                    window.open('https://www.google.com/search?q=' + document.getElementById('input_text').value, '_blank');
+                }
             </script>
 
             <!--<input type="submit" formmethod="GET" style="font-size:26px" formaction="https://www.quora.com/search" value="Quora" />-->
-            <!--<input type="button" value="Baidu" style="font-size:26px" onclick="window.open('http://www.baidu.com/s?wd='+document.getElementById('input_text').value);" />-->
             <!--body {
             background-image: url('CAC30_290B6.jpg');
             background-repeat: no-repeat;
